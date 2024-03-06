@@ -1,0 +1,16 @@
+<?php
+	include"../inc/config.php";
+	validate_admin_not_login("login.php");
+	include"inc/header.php";
+?>
+	<div class="container text-center" style="margin-top:20px;padding:50px;">
+		<?php
+			$q = mysql_query("select * from user where id='$_SESSION[iam_admin]'");
+			$admin = mysql_fetch_object($q);
+		?>
+		<h2>Hi, Admin <?php echo $admin->nama ?></h2>
+		<br>
+		<br>
+		<h1>Welcome to Administrator</h1>
+    </div>
+<?php include"inc/footer.php"; ?>
